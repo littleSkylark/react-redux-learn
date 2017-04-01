@@ -7,6 +7,10 @@ class Counter extends Component{
 		decrement:PropTypes.func
 	}
 
+	asynAdd() {
+	 	setTimeout(this.props.add,1000)
+	}
+
 	render(){
 		const {value,add,decrement}=this.props
 		return(
@@ -14,6 +18,7 @@ class Counter extends Component{
 				<p>点击：{value}次</p>
 				<button onClick={add}>+</button>
 				<button onClick={decrement}>-</button>
+				<button onClick={this.asynAdd.bind(this)}>异步+</button>
 			</div>
 		)
 	}
